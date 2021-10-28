@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/huawei_logo"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/huawei_logo"
+        android:layout_marginTop="90dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+    />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/huawei_logo">
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="90dp"
+            android:text="Name: Huawei \n Age:34 \n Products:Smart Phone, smart tv network and etc"
+            android:gravity="center"
+            android:textSize="20sp"
+            />
+    </LinearLayout>
+    <TextView
+        android:layout_below="@id/huawei_logo"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="100dp"
+        android:text="Headquartered: Shenzhen,Guangdong,China \n Key People:Ren Zhengfei, Liang Hua and Meng Wanzhou"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true"
+        />
+
+
+</RelativeLayout>
