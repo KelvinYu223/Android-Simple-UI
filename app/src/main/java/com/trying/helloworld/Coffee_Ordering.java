@@ -58,8 +58,8 @@ public class Coffee_Ordering extends AppCompatActivity {
     }
     private void openDialog(){
         AlertDialog dlg=new AlertDialog.Builder(Coffee_Ordering.this)
-                .setTitle("Your Order")
-                .setMessage(""+Integer.toString(total))
+                .setTitle("Your Order Price")
+                .setMessage("RM "+Integer.toString(total))
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
