@@ -1,19 +1,18 @@
 package com.trying.helloworld;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class Coffee_Ordering extends AppCompatActivity {
     private Button btnminus, btnadd, btnmakeorder;
     private CheckBox checkbox1, checkbox2, checkbox3;
     private TextView text1;
-    int text=1;
-    int amount;
+    private int amount=1, total;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,27 +30,43 @@ public class Coffee_Ordering extends AppCompatActivity {
         text1=findViewById(R.id.text1);
     }
     private void setListener(){
-        int coffee=5;
-        if (text>0){
-            btnadd.setOnClickListener(view ->{
-                text++;
+        btnadd.setOnClickListener(view ->{
+            amount++;
+            text1.setText(Integer.toString(amount));
         });
-        }
-        if (text>0){
-            btnminus.setOnClickListener(view ->{
-                text--;
-            });
-        }
-        if (checkbox1.isChecked()){
-            coffee +=1;
-        }
-        if (checkbox2.isChecked()){
-            coffee +=2;
-        }
-        if (checkbox3.isChecked()){
-            coffee +=3;
-        }
-        amount=coffee*text;
-        Toast.makeText(this,amount,Toast.LENGTH_SHORT).show();
+
+        btnminus.setOnClickListener(view ->{
+            amount--;
+            text1.setText(Integer.toString(amount));
+        });
+
+        btnmakeorder.setOnClickListener(view ->{
+            int coffee=5;
+            if (checkbox1.isChecked()){
+                coffee +=1;
+            }
+            if (checkbox2.isChecked()){
+                coffee +=2;
+            }
+            if (checkbox3.isChecked()) {
+                coffee += 3;
+            }
+            total=coffee*amount;
+
+            openDialog();
+        });
+    }
+    private void openDialog(){
+        AlertDialog dlg=new AlertDialog.Builder(Coffee_Ordering.this)
+                .setTitle("Your Order")
+                .setMessage(""+Integer.toString(total))
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+                .create();
+        dlg.show();
     }
 }
