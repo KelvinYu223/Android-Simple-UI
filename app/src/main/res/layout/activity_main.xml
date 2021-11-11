@@ -50,6 +50,14 @@
         android:text="LOGIN"
         />
 
-
+    <Button
+        android:id="@+id/btnweb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/loginbtn"
+        android:layout_marginLeft="60dp"
+        android:layout_marginBottom="-50dp"
+        android:text="Visit Huawei website"
+        android:textSize="20sp" />
 
 </LinearLayout>
