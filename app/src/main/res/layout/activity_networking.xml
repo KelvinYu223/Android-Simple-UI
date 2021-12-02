@@ -3,14 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".Networking.Networking">
+    tools:context=".Networking2">
 
     <ListView
         android:id="@+id/listview2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/activity_student_name"
-        />
+        tools:listitem="@layout/activity_student_name" />
+
     <ProgressBar
         android:id="@+id/progressbar"
         android:layout_width="80dp"
@@ -18,6 +18,36 @@
         android:layout_centerInParent="true"
         android:visibility="gone"
         />
-
+    <ImageView
+        android:id="@+id/photo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        />
+    <ImageView
+        android:id="@+id/photo2"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/photo"
+        />
+    <ImageView
+        android:id="@+id/photo3"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/photo2"
+        />
+    <ImageView
+        android:id="@+id/photo4"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/photo3"
+        />
 
 </RelativeLayout>
