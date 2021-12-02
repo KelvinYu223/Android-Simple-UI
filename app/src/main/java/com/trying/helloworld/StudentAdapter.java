@@ -44,7 +44,7 @@ public class StudentAdapter extends ArrayAdapter<String> {
         }
         return view;
     }
-    private static class Holder{
+    static class Holder{
         TextView student;
     }
 }
