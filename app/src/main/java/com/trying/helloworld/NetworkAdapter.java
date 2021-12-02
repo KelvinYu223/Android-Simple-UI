@@ -12,11 +12,11 @@ import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 
-class NetworkAdapter extends ArrayAdapter<String> {
-    private ArrayList<String> data;
+class NetworkAdapter extends ArrayAdapter<Contact> {
+    private ArrayList<Contact> data;
     private Context context;
 
-    public NetworkAdapter(@NonNull Context context, ArrayList<String> data) {
+    public NetworkAdapter(@NonNull Context context, ArrayList<Contact> data) {
         super(context, R.layout.activity_student_name);
         this.data = data;
         this.context = context;
@@ -29,21 +29,30 @@ class NetworkAdapter extends ArrayAdapter<String> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        String studentname=data.get(position);
+        Contact contact = data.get(position);
         View view;
         if (convertView==null){
-            StudentAdapter.Holder holder=new StudentAdapter.Holder();
+            NetworkAdapter.holder holder=new NetworkAdapter.holder();
             view= LayoutInflater.from(context).inflate(R.layout.activity_student_name,null);
-            holder.student=view.findViewById(R.id.student);
-            holder.student.setText(studentname);
+            holder.id=view.findViewById(R.id.id);
+            holder.id.setText(contact.getId());
+            holder.name=view.findViewById(R.id.name);
+            holder.name.setText(contact.getName());
+            holder.course=view.findViewById(R.id.course);
+            holder.course.setText(contact.getCourse());
             view.setTag(holder);
         }
         else{
-            StudentAdapter.Holder holder=(StudentAdapter.Holder) convertView.getTag();
+            NetworkAdapter.holder holder=(NetworkAdapter.holder) convertView.getTag();
             view=convertView;
-            holder.student.setText(studentname);
+            holder.id.setText(contact.getId());
+            holder.name.setText(contact.getName());
+            holder.course.setText(contact.getCourse());
         }
         return view;
+    }
+    private static class holder{
+        TextView id, name, course;
     }
 
 }
